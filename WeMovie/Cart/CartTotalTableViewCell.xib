@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="KGk-i7-Jjw" customClass="CartTotalTableViewCell" customModule="WeMovie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="331" height="99"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="331" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="1E7-Na-lqP">
+                        <rect key="frame" x="5" y="5" width="321" height="82.666666666666671"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IYe-mE-pxV">
+                                <rect key="frame" x="16" y="0.0" width="289" height="28.666666666666668"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RV7-Ih-JDA">
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="28.666666666666668"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="hSG-ce-9oG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 0000,00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-5h-ZBB">
+                                        <rect key="frame" x="161" y="0.0" width="128" height="28.666666666666668"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="bmK-fB-7yq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JO8-Zd-zRe">
+                                <rect key="frame" x="20.666666666666657" y="30.666666666666664" width="280" height="39.999999999999993"/>
+                                <color key="backgroundColor" name="buttonDefaultColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Ezp-kJ-R1e"/>
+                                    <constraint firstAttribute="height" constant="40" id="mVm-nC-9zT"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="FINALIZAR PEDIDO">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" name="buttonDefaultColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="finishOrder:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9rf-db-eLg"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wB0-Gx-iBT">
+                                <rect key="frame" x="20.666666666666657" y="77.666666666666671" width="280" height="5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="55K-8Z-1HL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IYe-mE-pxV" firstAttribute="leading" secondItem="1E7-Na-lqP" secondAttribute="leading" constant="16" id="2zA-eC-qYe"/>
+                            <constraint firstItem="wB0-Gx-iBT" firstAttribute="centerX" secondItem="1E7-Na-lqP" secondAttribute="centerX" id="7Zk-fn-Eil"/>
+                            <constraint firstAttribute="trailing" secondItem="IYe-mE-pxV" secondAttribute="trailing" constant="16" id="Kqx-V8-63e"/>
+                            <constraint firstAttribute="bottom" secondItem="JO8-Zd-zRe" secondAttribute="bottom" constant="12" id="YhC-Th-aSQ"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" name="primaryBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="1E7-Na-lqP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="3ZH-1c-Fyp"/>
+                    <constraint firstAttribute="bottom" secondItem="1E7-Na-lqP" secondAttribute="bottom" constant="2" id="qfW-6K-JTx"/>
+                    <constraint firstItem="1E7-Na-lqP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="rxf-A1-4Z8"/>
+                    <constraint firstAttribute="trailing" secondItem="1E7-Na-lqP" secondAttribute="trailing" constant="5" id="tE2-Ug-ku4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="finishOrderButton" destination="JO8-Zd-zRe" id="ynY-im-icz"/>
+                <outlet property="moneyLabel" destination="Uax-5h-ZBB" id="3jQ-wL-Gqo"/>
+            </connections>
+            <point key="canvasLocation" x="145.80152671755724" y="27.816901408450704"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="buttonDefaultColor">
+            <color red="0.27099999785423279" green="0.60799998044967651" blue="0.84299999475479126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="primaryBackgroundColor">
+            <color red="0.18400000035762787" green="0.18000000715255737" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
