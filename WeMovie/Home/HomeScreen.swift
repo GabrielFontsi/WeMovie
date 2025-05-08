@@ -34,6 +34,13 @@ class HomeScreen: UIView {
         label.textColor = .white
         return label
     }()
+    
+    lazy var messageStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [bestSellersLabel,bestSellersMsgLabel])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        return stack
+    }()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -69,17 +76,15 @@ class HomeScreen: UIView {
     }
     
     private func setupLayout(){
-        self.addSubview(self.bestSellersLabel)
-        self.addSubview(self.bestSellersMsgLabel)
+        self.addSubview(self.messageStackView)
         self.addSubview(self.tableView)
     }
     
     private func setupConstraints(){
         NSLayoutConstraint.activate([
-            self.bestSellersLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 24),
-            self.bestSellersLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-            self.bestSellersMsgLabel.topAnchor.constraint(equalTo: self.bestSellersLabel.bottomAnchor),
-            self.bestSellersMsgLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            self.messageStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 24),
+            self.messageStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+           
             
             self.tableView.topAnchor.constraint(equalTo: self.bestSellersLabel.bottomAnchor, constant: 24),
             self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),

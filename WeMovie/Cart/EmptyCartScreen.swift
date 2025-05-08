@@ -9,11 +9,24 @@ import UIKit
 
 class EmptyCartScreen: UIView {
     var didTapHomeButton: (() -> Void)?
+    
+    private lazy var cartLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Carrinho de compras"
+        label.font = UIFont(name: "OpenSans-Bold", size: 20)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        
+        return label
+    }()
 
     private lazy var backgroundColorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.layer.cornerRadius = 4
         return view
     }()
     
@@ -42,6 +55,7 @@ class EmptyCartScreen: UIView {
         button.backgroundColor = UIColor(named: "buttonDefaultColor")
         button.setTitle("Voltar à Home", for: .normal)
         button.titleLabel?.font = UIFont(name: "OpenSans-Bold", size: 12)
+        button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(handleHomeButton), for: .touchUpInside)
         return button
     }()
@@ -62,6 +76,7 @@ class EmptyCartScreen: UIView {
     }
     
     private func setupLayout(){
+        self.addSubview(self.cartLabel)
         self.addSubview(self.backgroundColorView)
         self.backgroundColorView.addSubview(self.emptyLabel)
         self.backgroundColorView.addSubview(self.imageRefreshImageView)
@@ -70,7 +85,10 @@ class EmptyCartScreen: UIView {
     
     private func setupConstraints(){
         NSLayoutConstraint.activate([
-            self.backgroundColorView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 24),
+            self.cartLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 24),
+            self.cartLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            
+            self.backgroundColorView.topAnchor.constraint(equalTo: self.cartLabel.bottomAnchor, constant: 24),
             self.backgroundColorView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             self.backgroundColorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
             self.backgroundColorView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -24),
@@ -80,12 +98,14 @@ class EmptyCartScreen: UIView {
             self.emptyLabel.trailingAnchor.constraint(equalTo: self.backgroundColorView.trailingAnchor, constant: -24),
             
             self.imageRefreshImageView.topAnchor.constraint(equalTo: self.emptyLabel.bottomAnchor, constant: 24),
+            self.imageRefreshImageView.heightAnchor.constraint(equalToConstant: 343),
             self.imageRefreshImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-            self.refreshButton.topAnchor.constraint(equalTo: self.imageRefreshImageView.bottomAnchor, constant: 24),
+        
             self.refreshButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.refreshButton.widthAnchor.constraint(equalToConstant: 173),
-            self.refreshButton.heightAnchor.constraint(equalToConstant: 40)
+            self.refreshButton.bottomAnchor.constraint(equalTo: self.backgroundColorView.bottomAnchor, constant: -24),
+            self.refreshButton.heightAnchor.constraint(equalToConstant: 40),
+            self.refreshButton.widthAnchor.constraint(equalToConstant: 173)
+
         ])
     }
 

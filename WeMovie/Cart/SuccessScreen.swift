@@ -13,6 +13,7 @@ class SuccessScreen: UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.layer.cornerRadius = 4
         return view
     }()
     
@@ -20,7 +21,14 @@ class SuccessScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "OpenSans-Light", size: 12)
-        label.text = "Data da compra \(Date().description.formatDate() ?? "Data da compra ")"
+        
+    
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let hourString = formatter.string(from: date)
+        
+        label.text = "Compra realizada em \(Date().description.formatDate() ?? "Data da compra ") às \(hourString) "
         label.tintColor = .darkGray
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -52,6 +60,7 @@ class SuccessScreen: UIView {
         button.backgroundColor = UIColor(named: "buttonDefaultColor")
         button.setTitle("Voltar à Home", for: .normal)
         button.titleLabel?.font = UIFont(name: "OpenSans-Bold", size: 12)
+        button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(handleHomeButton), for: .touchUpInside)
         return button
     }()
@@ -97,10 +106,10 @@ class SuccessScreen: UIView {
             self.imageRefreshImageView.topAnchor.constraint(equalTo: self.sucessLabel.bottomAnchor, constant: 24),
             self.imageRefreshImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            self.refreshButton.topAnchor.constraint(equalTo: self.imageRefreshImageView.bottomAnchor, constant: 24),
             self.refreshButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.refreshButton.widthAnchor.constraint(equalToConstant: 173),
-            self.refreshButton.heightAnchor.constraint(equalToConstant: 40)
+            self.refreshButton.bottomAnchor.constraint(equalTo: self.backgroundColorView.bottomAnchor, constant: -24),
+            self.refreshButton.heightAnchor.constraint(equalToConstant: 40),
+            self.refreshButton.widthAnchor.constraint(equalToConstant: 173)
         ])
     }
 

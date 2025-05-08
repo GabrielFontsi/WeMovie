@@ -51,20 +51,29 @@ class CartViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        title = "We Movies"
+        navigationItem.title = "WeMovies"
+      
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .primaryBackground
+        
         if let customFont = UIFont(name: "OpenSans-Bold", size: 20) {
-                
-                navigationController?.navigationBar.titleTextAttributes = [
-                    NSAttributedString.Key.foregroundColor: UIColor.white,
-                    NSAttributedString.Key.font: customFont
-                ]
-            } else {
-                print("Fonte personalizada não encontrada!")
-                navigationController?.navigationBar.titleTextAttributes = [
-                    NSAttributedString.Key.foregroundColor: UIColor.white,
-                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)
-                ]
-            }
+            appearance.titleTextAttributes = [
+                .foregroundColor: UIColor.white,
+                .font: customFont
+            ]
+        } else {
+            print("Fonte personalizada não encontrada!")
+            appearance.titleTextAttributes = [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.systemFont(ofSize: 20)
+            ]
+        }
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
     }
 }
 

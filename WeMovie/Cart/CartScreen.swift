@@ -9,11 +9,13 @@ import UIKit
 
 class CartScreen: UIView {
     var didTapHomeButton: (() -> Void)?
+    
     lazy var emptyCartScreen: EmptyCartScreen = {
         let view = EmptyCartScreen()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     lazy var successScreen: SuccessScreen = {
         let view = SuccessScreen()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +28,6 @@ class CartScreen: UIView {
         label.text = "Carrinho de compra"
         label.textColor = .white
         label.font = UIFont(name: "OpenSans-Bold" , size:20 )
-       
         return label
     }()
 
@@ -74,11 +75,11 @@ class CartScreen: UIView {
     private func setupConstraints(){
         NSLayoutConstraint.activate([
             self.cartLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 24),
-            self.cartLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            self.cartLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             
             self.tableView.topAnchor.constraint(equalTo: self.cartLabel.bottomAnchor, constant: 24),
-            self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }

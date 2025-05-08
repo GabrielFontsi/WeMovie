@@ -14,6 +14,7 @@ class ReloadPageScreen: UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.layer.cornerRadius = 4
         return view
     }()
     
@@ -42,6 +43,7 @@ class ReloadPageScreen: UIView {
         button.backgroundColor = UIColor(named: "buttonDefaultColor")
         button.setTitle("Recarregar Página", for: .normal)
         button.titleLabel?.font = UIFont(name: "OpenSans-Bold", size: 12)
+        button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(handleReloadButton), for: .touchUpInside)
         return button
     }()
@@ -82,10 +84,10 @@ class ReloadPageScreen: UIView {
             self.imageRefreshImageView.topAnchor.constraint(equalTo: self.emptyLabel.bottomAnchor, constant: 24),
             self.imageRefreshImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            self.refreshButton.topAnchor.constraint(equalTo: self.imageRefreshImageView.bottomAnchor, constant: 24),
             self.refreshButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.refreshButton.widthAnchor.constraint(equalToConstant: 173),
-            self.refreshButton.heightAnchor.constraint(equalToConstant: 40)
+            self.refreshButton.bottomAnchor.constraint(equalTo: self.backgroundColorView.bottomAnchor, constant: -24),
+            self.refreshButton.heightAnchor.constraint(equalToConstant: 40),
+            self.refreshButton.widthAnchor.constraint(equalToConstant: 173)
         ])
     }
 

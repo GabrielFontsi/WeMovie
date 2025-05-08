@@ -33,7 +33,7 @@ class SelectedMovieTableViewCell: UITableViewCell {
            
             
             quantityMovieLabel.text = "\(item.amount)"
-            subTotalLabel.text = "\(item.movie.price * Double(item.amount))".formatToTwoDecimalPlaces().replaceDotWithComma()
+            subTotalLabel.text = "R$ \(item.movie.price * Double(item.amount))".formatToTwoDecimalPlaces().replaceDotWithComma()
             if let imageURL = URL(string: item.movie.image) {
                 movieImageView.kf.setImage(with: imageURL)
             }
