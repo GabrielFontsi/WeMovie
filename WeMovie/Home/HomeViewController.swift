@@ -34,6 +34,11 @@ class HomeViewController: UIViewController {
         viewModel.fetchMovies()
         setupReloadButton()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshUI()
+    }
     
     func setupReloadButton() {
         homeScreen.didTapReloadButton = { [weak self] in
@@ -44,7 +49,6 @@ class HomeViewController: UIViewController {
     func setupNavigationBar() {
         navigationItem.title = AppMessages.titleNavigation
       
-        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .primaryBackground
@@ -55,7 +59,6 @@ class HomeViewController: UIViewController {
                 .font: customFont
             ]
         } else {
-          
             appearance.titleTextAttributes = [
                 .foregroundColor: UIColor.white,
                 .font: UIFont.systemFont(ofSize: 20)
@@ -67,7 +70,9 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
     }
 
-
+    func refreshUI() {
+        homeScreen.tableView.reloadData()
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -81,8 +86,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.movie = movie
         cell.amountInCart = viewModel.getCartAmount(for: movie)
         cell.delegate = self
-     
-        
         cell.selectionStyle = .none
         return cell
     }
@@ -90,9 +93,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 355
     }
-    
-  
-
 }
 
 extension HomeViewController: MovieTableViewCellDelegate {

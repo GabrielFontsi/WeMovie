@@ -138,20 +138,22 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         updateTabButtonStyles()
     }
 
-    private func updateTabButtonStyles() {
+    public func updateTabButtonStyles() {
         for (index, button) in customTabButtons.enumerated() {
             button.setTitleColor(.white.withAlphaComponent(index == selectedIndex ? 1 : 0.5), for: .normal)
         }
     }
 
-    private func updateGradientVisibility() {
+    public func updateGradientVisibility() {
         for (index, view) in gradientViews.enumerated() {
             view.isHidden = index != selectedIndex
         }
     }
 
     @objc private func handleCartUpdate() {
-        let totalItems = cartManager.cartItems.reduce(0) { $0 + $1.amount }
+        let totalItems = cartManager.cartItems.reduce(0) { $0 + $1
+
+.amount }
         let cartTitle = totalItems > 0 ? "\(TabItem.cart.title) (\(totalItems))" : TabItem.cart.title
 
         if let cartButton = customTabButtons[safe: 0] {

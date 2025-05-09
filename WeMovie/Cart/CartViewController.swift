@@ -30,9 +30,13 @@ class CartViewController: UIViewController {
         setupNavigationBar()
         self.cartScreen.configTableViewDelegate(delegate: self, dataSource: self)
         cartScreen.didTapHomeButton = { [weak self] in
-            self?.tabBarController?.selectedIndex = 1
-            self?.tabBarController?.view.setNeedsLayout()
-            self?.tabBarController?.view.layoutIfNeeded()
+            guard let self = self else { return }
+            self.tabBarController?.selectedIndex = 1
+            // Forçar atualização da TabBar personalizada
+            if let tabBarVC = self.tabBarController as? TabBarViewController {
+                tabBarVC.updateTabButtonStyles()
+                tabBarVC.updateGradientVisibility()
+            }
         }
     }
 
