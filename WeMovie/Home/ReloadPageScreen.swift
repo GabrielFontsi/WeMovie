@@ -23,7 +23,7 @@ class ReloadPageScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = AppMessages.emptyCart
         label.font = UIFont(name: "OpenSans-Bold", size: 20)
-        label.tintColor = UIColor(named: "textColor")
+        label.tintColor = .secundaryBackground
         label.textAlignment = .center
         label.numberOfLines = 0
         
@@ -41,7 +41,7 @@ class ReloadPageScreen: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .primaryButton
-        button.setTitle("Recarregar Página", for: .normal)
+        button.setTitle(AppMessages.regreshPage, for: .normal)
         button.titleLabel?.font = UIFont(name: "OpenSans-Bold", size: 12)
         button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(handleReloadButton), for: .touchUpInside)

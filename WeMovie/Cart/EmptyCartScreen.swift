@@ -53,7 +53,7 @@ class EmptyCartScreen: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .primaryButton
-        button.setTitle("Voltar à Home", for: .normal)
+        button.setTitle(AppMessages.backHome, for: .normal)
         button.titleLabel?.font = UIFont(name: "OpenSans-Bold", size: 12)
         button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(handleHomeButton), for: .touchUpInside)

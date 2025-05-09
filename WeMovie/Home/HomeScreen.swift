@@ -19,7 +19,7 @@ class HomeScreen: UIView {
     lazy var bestSellersLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Mais vendidos"
+        label.text = AppMessages.bestSellers
         label.textColor = .white
         label.font = UIFont(name: "OpenSans-Bold" , size:20 )
        
@@ -29,7 +29,7 @@ class HomeScreen: UIView {
     lazy var bestSellersMsgLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Maiores sucessos do WeMovies"
+        label.text = AppMessages.greatestHits
         label.font = UIFont(name: "OpenSans-Regular" , size:12 )
         label.textColor = .white
         return label

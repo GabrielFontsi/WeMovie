@@ -25,7 +25,7 @@ class CartScreen: UIView {
     lazy var cartLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Carrinho de compra"
+        label.text = AppMessages.buyCart
         label.textColor = .white
         label.font = UIFont(name: "OpenSans-Bold" , size:20 )
         return label

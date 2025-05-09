@@ -17,4 +17,9 @@ struct AppMessages {
     static let urlLinkedin = "https://www.linkedin.com/in/gabriel-fontenele-da-silva-a87702158/."
     static let email =  "Wemovie@movie.com"
     static let titleNavigation =  "WeMovies"
+    static let buyCart =  "Carrinho de compra"
+    static let backHome =  "Voltar à Home"
+    static let regreshPage =  "Recarregar Página"
+    static let bestSellers =  "Mais vendidos"
+    static let greatestHits =  "Maiores sucessos do WeMovies"
 }
