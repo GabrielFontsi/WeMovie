@@ -1,5 +1,5 @@
 //
-//  String + Extension.swift
+//  String+Extension.swift
 //  WeMovie
 //
 //  Created by Gabriel Fontenele da Silva on 09/11/24.

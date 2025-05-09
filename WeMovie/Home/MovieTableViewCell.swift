@@ -37,9 +37,9 @@ class MovieTableViewCell: UITableViewCell {
         didSet {
             addToCartButton.setTitle(" \(amountInCart) ADICIONAR AO CARRINHO", for: .normal)
             if amountInCart > 0 {
-                addToCartButton.backgroundColor = UIColor(named: "buttonSelectedColor")
+                addToCartButton.backgroundColor = .sucundaryButton
             } else {
-                addToCartButton.backgroundColor = UIColor(named: "buttonDefaultColor")
+                addToCartButton.backgroundColor = .primaryButton
             }
         }
     }

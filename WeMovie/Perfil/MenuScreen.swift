@@ -13,7 +13,8 @@ class MenuScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .white
-        image.contentMode = .scaleAspectFit
+        image.tintColor = .primaryBackground
+        image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 60
         image.layer.masksToBounds = true
         return image
@@ -22,21 +23,12 @@ class MenuScreen: UIView {
     lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .white
-        label.text = "Wemovie@movie.com"
+        label.text = AppMessages.email
         return label
     }()
     
-    lazy var quantidadeFilmesFavoritadosLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .white
-        label.text = "Filmes disponíveis 6"
-        return label
-    }()
-
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,19 +54,17 @@ class MenuScreen: UIView {
     }
     
     private func setupBackgroundColor(){
-        self.backgroundColor = UIColor(named: "primaryBackgroundColor")
+        self.backgroundColor = .secundaryBackground
     }
     
     private func setupLayout(){
         self.addSubview(self.imagePerfilUIimageView)
         self.addSubview(self.emailLabel)
-        self.addSubview(self.quantidadeFilmesFavoritadosLabel)
         self.addSubview(self.tableView)
     }
     
     private func setupConstraints(){
         NSLayoutConstraint.activate([
-            
             self.imagePerfilUIimageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 18),
             self.imagePerfilUIimageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.imagePerfilUIimageView.widthAnchor.constraint(equalToConstant: 120),
@@ -83,14 +73,10 @@ class MenuScreen: UIView {
             self.emailLabel.topAnchor.constraint(equalTo: self.imagePerfilUIimageView.bottomAnchor, constant: 12),
             self.emailLabel.centerXAnchor.constraint(equalTo: self.imagePerfilUIimageView.centerXAnchor),
             
-            self.quantidadeFilmesFavoritadosLabel.topAnchor.constraint(equalTo: self.emailLabel.bottomAnchor, constant: 2),
-            self.quantidadeFilmesFavoritadosLabel.centerXAnchor.constraint(equalTo: self.imagePerfilUIimageView.centerXAnchor),
-            
-            self.tableView.topAnchor.constraint(equalTo: self.quantidadeFilmesFavoritadosLabel.bottomAnchor, constant: 18),
+            self.tableView.topAnchor.constraint(equalTo: self.emailLabel.bottomAnchor, constant: 32),
             self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-
 }

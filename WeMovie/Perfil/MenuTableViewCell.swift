@@ -9,7 +9,7 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
 
-    static let identifier: String = "MenuTableViewCell"
+    static let identifier: String = String(describing: MenuTableViewCell.self)
     
     lazy var menuCellScreen = {
         let view = MenuCellScreen()
@@ -31,7 +31,7 @@ class MenuTableViewCell: UITableViewCell {
     }
     
     public func configurationCell(menu: Menu) {
-        self.menuCellScreen.iconImageView.image = UIImage(named: menu.icon)
+        self.menuCellScreen.iconImageView.image = UIImage(systemName: menu.icon)
         self.menuCellScreen.nameIconLabel.text = menu.title
     }
     

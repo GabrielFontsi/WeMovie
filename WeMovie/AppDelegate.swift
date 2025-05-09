@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let tabBarApperance = UITabBarAppearance()
         tabBarApperance.configureWithOpaqueBackground()
-        tabBarApperance.backgroundColor = UIColor(named: "tabBarColor")
+        tabBarApperance.backgroundColor = .primaryBackground
         
         UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
         UITabBar.appearance().standardAppearance = tabBarApperance

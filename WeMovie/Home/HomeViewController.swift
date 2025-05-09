@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "WeMovies"
+        navigationItem.title = AppMessages.titleNavigation
       
         
         let appearance = UINavigationBarAppearance()
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
                 .font: customFont
             ]
         } else {
-            print("Fonte personalizada não encontrada!")
+          
             appearance.titleTextAttributes = [
                 .foregroundColor: UIColor.white,
                 .font: UIFont.systemFont(ofSize: 20)

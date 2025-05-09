@@ -31,6 +31,8 @@ class CartViewController: UIViewController {
         self.cartScreen.configTableViewDelegate(delegate: self, dataSource: self)
         cartScreen.didTapHomeButton = { [weak self] in
             self?.tabBarController?.selectedIndex = 1
+            self?.tabBarController?.view.setNeedsLayout()
+            self?.tabBarController?.view.layoutIfNeeded()
         }
     }
 
@@ -51,9 +53,8 @@ class CartViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "WeMovies"
+        navigationItem.title = AppMessages.titleNavigation
       
-        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .primaryBackground
@@ -64,7 +65,6 @@ class CartViewController: UIViewController {
                 .font: customFont
             ]
         } else {
-            print("Fonte personalizada não encontrada!")
             appearance.titleTextAttributes = [
                 .foregroundColor: UIColor.white,
                 .font: UIFont.systemFont(ofSize: 20)

@@ -39,7 +39,7 @@ class SuccessScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "OpenSans-Bold", size: 20)
-        label.text = "Compra realizada com sucesso!"
+        label.text = AppMessages.purchaseSuccess
         label.tintColor = .darkGray
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -57,7 +57,7 @@ class SuccessScreen: UIView {
     private lazy var refreshButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "buttonDefaultColor")
+        button.backgroundColor = .primaryButton
         button.setTitle("Voltar à Home", for: .normal)
         button.titleLabel?.font = UIFont(name: "OpenSans-Bold", size: 12)
         button.layer.cornerRadius = 4
@@ -77,7 +77,7 @@ class SuccessScreen: UIView {
     }
     
     private func setupBackgroundColor(){
-       self.backgroundColor = UIColor(named: "primaryBackgroundColor")
+        self.backgroundColor = .secundaryBackground
     }
     
     private func setupLayout(){

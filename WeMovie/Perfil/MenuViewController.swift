@@ -8,9 +8,15 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-    
+        
     private let menuScreen = MenuScreen()
     var alert: Alert?
+    
+    let listMenu: [Menu] = [
+          Menu(id: 1, title: "Conta", icon: "person.circle"),
+          Menu(id: 2, title: "WeMovie", icon: "film"),
+          Menu(id: 3, title: "Linkedin", icon: "link.circle"),
+      ]
     
     override func loadView() {
         self.view = self.menuScreen
@@ -23,7 +29,7 @@ class MenuViewController: UIViewController {
     }
 }
 
-extension MenuViewController: UITableViewDelegate,UITableViewDataSource {
+extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listMenu.count
@@ -40,20 +46,21 @@ extension MenuViewController: UITableViewDelegate,UITableViewDataSource {
         return UITableViewCell()
     }
 
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 0 {
-            self.alert?.getAlert(title: "Informações do usuario", message: "Projeto desenvolvido por Gabriel Fontenele da Silva Dev iOS")
-        } else if indexPath.row == 1 {
-            self.alert?.getAlert(title: "Filmes", message: "O catálogo do aplicativo atualmente possui seis filmes disponíveis.")
-        } else  if indexPath.row == 2 {
-          
+        switch indexPath.row {
+        case 0:
+            self.alert?.getAlert(title: AppMessages.titleDeveloperCredits, message: AppMessages.developerCredits)
+        case 1:
+            self.alert?.getAlert(title: AppMessages.titleCatalogInfo, message: AppMessages.catalogInfo)
+        case 2:
+            if let url = URL(string: AppMessages.urlLinkedin) {UIApplication.shared.open(url)}
+        default:
+            break
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
 }

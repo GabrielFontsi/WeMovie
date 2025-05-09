@@ -7,11 +7,10 @@
 
 import UIKit
 
-/// Tag used to remove lock view when requested
 private let backgroundViewTag = 3432
 
 extension UIView {
-    /// Blocks user interaction and add an animating view to represent a loading process
+    
     func lock() {
         if let _ = self.viewWithTag(backgroundViewTag) {
             return
@@ -32,7 +31,6 @@ extension UIView {
         refreshControll.startAnimating()
     }
     
-    /// Removes animating view that represents a loading process
     func unlock() {
         guard let backgroundView = self.viewWithTag(backgroundViewTag) else {
             return

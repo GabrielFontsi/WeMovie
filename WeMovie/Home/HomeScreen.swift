@@ -72,7 +72,7 @@ class HomeScreen: UIView {
     }
     
     private func setupBackgroundColor(){
-        self.backgroundColor = UIColor(named: "primaryBackgroundColor")
+        self.backgroundColor = .secundaryBackground
     }
     
     private func setupLayout(){

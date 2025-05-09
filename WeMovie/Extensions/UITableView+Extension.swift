@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.swift
+//  UITableView+Extension.swift
 //  WeMovie
 //
 //  Created by Gabriel Fontenele da Silva on 07/11/24.

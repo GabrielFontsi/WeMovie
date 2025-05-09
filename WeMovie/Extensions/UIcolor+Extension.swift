@@ -1,6 +1,6 @@
 //
 //  UIcolor+Extension.swift
-//  AppDoseCerta
+//  WeMovie
 //
 //  Created by Gabriel Fontenele da Silva on 22/04/25.
 //
@@ -10,10 +10,9 @@ import UIKit
 extension UIColor {
     static let primaryBackground = UIColor(hex: "#1D1D2B")
     static let secundaryBackground = UIColor(hex: "#2F2E41")
-    
-    static let primaryButton = UIColor(hex: "#90E0EF")
+    static let primaryButton = UIColor(hex: "#009EDD")
+    static let sucundaryButton = UIColor(hex: "#039b00")
 
-    // Inicializador para usar cores em hex
     convenience init(hex: String, alpha: CGFloat = 1.0) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

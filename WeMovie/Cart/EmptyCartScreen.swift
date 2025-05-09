@@ -33,7 +33,7 @@ class EmptyCartScreen: UIView {
     private lazy var emptyLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Parece que não há nada por aqui :("
+        label.text = AppMessages.emptyCart
         label.font = UIFont(name: "OpenSans-Bold", size: 20)
         label.tintColor = UIColor(named: "textColor")
         label.textAlignment = .center
@@ -52,7 +52,7 @@ class EmptyCartScreen: UIView {
     private lazy var refreshButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "buttonDefaultColor")
+        button.backgroundColor = .primaryButton
         button.setTitle("Voltar à Home", for: .normal)
         button.titleLabel?.font = UIFont(name: "OpenSans-Bold", size: 12)
         button.layer.cornerRadius = 4
@@ -72,7 +72,7 @@ class EmptyCartScreen: UIView {
     }
     
     private func setupBackgroundColor(){
-       self.backgroundColor = UIColor(named: "primaryBackgroundColor")
+        self.backgroundColor = .secundaryBackground
     }
     
     private func setupLayout(){

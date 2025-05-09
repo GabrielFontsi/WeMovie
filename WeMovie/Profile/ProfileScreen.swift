@@ -35,7 +35,7 @@ class ProfileScreen: UIView {
     }
     
     private func setupBackgroundColor(){
-        self.backgroundColor = UIColor(named: "primaryBackgroundColor")
+        self.backgroundColor = .primaryBackground
     }
     
     private func setupLayout(){

@@ -14,8 +14,3 @@ struct Menu {
     let icon: String
 }
 
-let listMenu: [Menu] = [
-Menu(id: 1, title: "Conta", icon: "perfil"),
-Menu(id: 2, title: "WeMovie", icon: "coracao"),
-Menu(id: 3, title: "Sair", icon: "sair"),
-]
